@@ -3,7 +3,7 @@ tensorflow
 matplotlib
 numpy
 pandas
-tqdm
+tqdm  # for showcasing the prgress of for loop
 PyYAML
 boto3  ## used for AWS commadn line access
 
