@@ -1,0 +1,9 @@
+dvc
+tensorflow
+matplotlib
+numpy
+pandas
+tqdm
+PyYAML
+boto3  ## used for AWS commadn line access
+
