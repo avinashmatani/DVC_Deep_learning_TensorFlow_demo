@@ -7,3 +7,11 @@ tqdm  # for showcasing the prgress of for loop
 PyYAML
 boto3  ## used for AWS commadn line access
 
+
+
+
+
+## local nvironment setup
+-e .
+# local setup can also be installed using command line using
+# pip install -e .
