@@ -4,12 +4,19 @@ import pandas as pd
 import os
 import shutil
 from tqdm import tqdm
+import logging
+
+logging_str ="[%(asctime)s: %(leveltime)s: %(module)s]: %(message)s"
+log_dir = "logs"
+os.makedirs(log_dir, exist_ok= True)
+logging.basicConfig(filename= os.path.join(log_dir, "running_logs.log"), level= logging.INFO, 
+format = logging_str, filemode = 'a')
 
 
 def copy_file(source_download_dir, local_data_dir):
     list_of_files = os.listdir(source_download_dir)
     N = len(list_of_files)
-    for file in tqdm(list_of_files,total = N, desc= f"Copying file from {source_download_dir} to {local_data_dir}", color = "green"):
+    for file in tqdm(list_of_files,total = N, desc= f"Copying file from {source_download_dir} to {local_data_dir}", colour = "green"):
         src = os.path.join(source_download_dir, file)
         dest = os.path.join(local_data_dir, file)
         shutil.copy(src, dest)
@@ -34,5 +41,14 @@ if __name__ == '__main__':
     args.add_argument("--config" , "-c", default="config/config.yaml")
 
     parsed_args = args.parse_args()
+
+    try:
+        logging.info("stage one strated")
+        get_data(config_path= parsed_args.config)
+        logging.info("stage one completed all the data are saved in local")
+    except Exception as e:
+        logging.exception(e)
+        raise e
+        
 
     get_data(config_path= parsed_args.config)
