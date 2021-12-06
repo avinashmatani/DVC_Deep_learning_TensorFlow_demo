@@ -1,0 +1,7 @@
+AUGMENTATION: True
+IMAGE_SIZE: [224,224,3]  ## Necessary to take it as a list and not a tuple, for it to consider as int and not numbers
+BATCH_SIZE: 16
+EPOCHS: 2
+CLASSES: 2
+BASE_MODEL: VGG16
+LEARNING_RATE: 0.001
